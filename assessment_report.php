@@ -222,7 +222,6 @@ class ReportGenerator
 
         // Calculate scores by strand
         $strandScores = $this->calculateStrandScores($recentResponse, $data['questions']);
-        print_r($strandScores);
         $totalCorrect = array_sum(array_column($strandScores, 'correct'));
         $totalQuestions = array_sum(array_column($strandScores, 'total'));
 
