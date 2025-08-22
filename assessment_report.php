@@ -665,6 +665,31 @@ class TestSuite
         } catch (Exception $e) {
             echo "Note: Full tests require sample data files\n";
         }
+
+        // Test: Invalid student ID
+        try {
+            $validator->validate(['studentId' => 'notfound', 'reportType' => 1], $sampleData);
+            echo "✗ Invalid student ID test failed (should have thrown exception)\n";
+        } catch (ValidationException $e) {
+            echo "✓ Invalid student ID test passed\n";
+        }
+
+        // Test: Invalid report type
+        try {
+            $validator->validate(['studentId' => 'test1', 'reportType' => 99], $sampleData);
+            echo "✗ Invalid report type test failed (should have thrown exception)\n";
+        } catch (ValidationException $e) {
+            echo "✓ Invalid report type test passed\n";
+        }
+
+        // Test: DataException for missing file
+        $dataLoader = new DataLoader();
+        try {
+            $dataLoader->loadAllData();
+            echo "✗ DataLoader missing file test failed (should have thrown exception)\n";
+        } catch (DataException $e) {
+            echo "✓ DataLoader missing file test passed\n";
+        }
     }
 }
 
