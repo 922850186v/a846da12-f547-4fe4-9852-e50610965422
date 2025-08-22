@@ -13,7 +13,8 @@ assessment-report-app
 │   ├── students.json           # Student data
 │   └── student-responses.json  # Student responses data
 ├── Dockerfile                  # Dockerfile for building the application image
-└── README.md                   # Project documentation
+├── README.md                   # Project documentation
+└── composer.json               # Project environment file
 ```
 
 ## Setup Instructions
